@@ -1,0 +1,15 @@
+# Rotation
+import cv2
+import numpy as np
+def rotate_image(image, angle): 
+    height, width = image.shape[:2]
+    rotation_matrix = cv2.getRotationMatrix2D((width / 2, height / 2), angle, 1) 
+    rotated_image = cv2.warpAffine(image, rotation_matrix, (width, height)) 
+    return rotated_image
+# Usage
+image = cv2.imread(r"C:\Users\91720\Pictures\Screenshots\Screenshot 2024-05-15 183237.png") 
+angle_degrees = 45
+rotated = rotate_image(image, angle_degrees) 
+cv2.imshow("Rotated Image", rotated)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
