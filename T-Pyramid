@@ -1,0 +1,17 @@
+import cv2
+def t_pyramid(image):
+    pyramid = [image]
+    while True:
+        if image.shape[0] > 1 and image.shape[1] > 1:
+            image = cv2.pyrDown(image)
+            pyramid.append(image)
+        else:
+            break
+    return pyramid
+image = cv2.imread(r<link_of_image_from_desktop>)
+gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+pyramid = t_pyramid(gray_image)
+for i in range(len(pyramid)):
+    cv2.imshow(f'Level {i}', pyramid[i])
+cv2.waitKey(0)
+cv2.destroyAllWindows()
