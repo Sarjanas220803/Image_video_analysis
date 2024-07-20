@@ -1,0 +1,13 @@
+#Change of scale
+def scale_image(image, scale_x, scale_y):
+    scaled_image = cv2.resize(image, None, fx=scale_x, fy=scale_y) 
+    return scaled_image
+# Usage
+image = cv2.imread(r<link
+>) 
+scale_factor_x = 1.5
+scale_factor_y = 1.5
+scaled = scale_image(image, scale_factor_x, scale_factor_y)
+cv2.imshow("Scaled Image", scaled)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
